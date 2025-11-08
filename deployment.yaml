@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: company-deployment
+  labels:
+    app: company-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: company-app
+  template:
+    metadata:
+      labels:
+        app: company-app
+    spec:
+      containers:
+        - name: company-container
+          image: kirasama/company-service:latest
+          ports:
+            - containerPort: 8081
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
