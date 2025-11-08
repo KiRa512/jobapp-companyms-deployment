@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: company-container
-          image: kirasama/company-service:latest
+          image: kirasama/company-service:05632e3db4a50d92941ffd4d83d3b6484fe25fca
           ports:
             - containerPort: 8081
           env:
